@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Gewenbo", url: "https://psyverse.fun" }],
   alternates: { canonical: "/", languages: { en: "/", "zh-CN": "/", "x-default": "/" } },
   openGraph: {
+    images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "Virtual Reality Engine · 虚拟现实引擎 — Virtual Worlds, Immersive Consciousness, Digital Reality & Post-Physical Civilization" }],
     title: TITLE_EN,
     description:
       "Civilisation has always engineered matter; virtual reality engineers perception itself. A bilingual atlas of immersion — spatial computing, full-dive VR, AI worlds, avatars, virtual economies, virtual societies, simulation theory and post-physical civilisation.",
@@ -41,6 +42,7 @@ export const metadata: Metadata = {
     alternateLocale: ["zh_CN"],
   },
   twitter: {
+    images: ["/twitter-image.png"],
     card: "summary_large_image",
     title: TITLE_EN,
     description: "Virtual reality · spatial computing · full-dive VR · AI-generated worlds · avatars · virtual economies · simulation theory · post-physical civilization. A bilingual exploration of engineering experience itself.",
