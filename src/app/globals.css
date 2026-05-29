@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void: #06030f;
+  --flux: #4d9bff;
+  --iris: #a855f7;
+  --holo: #22d3ee;
+  --gold: #ffd97a;
+  --plasm: #ff4d9d;
+  --ink: #f6f4ff;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--void);
+  color: var(--ink);
+}
+
+body {
+  background-color: #06030f;
+  background-image:
+    radial-gradient(ellipse 1200px 640px at 8% -8%, rgba(77, 155, 255, 0.14), transparent 60%),
+    radial-gradient(ellipse 1050px 580px at 94% 2%, rgba(168, 85, 247, 0.17), transparent 62%),
+    radial-gradient(ellipse 920px 560px at 50% 116%, rgba(34, 211, 238, 0.08), transparent 60%),
+    radial-gradient(ellipse 820px 800px at 50% 46%, rgba(255, 77, 157, 0.045), transparent 62%);
+  font-family: "Spectral", ui-serif, Georgia, serif;
+  letter-spacing: 0.004em;
+}
+
+::selection { background: rgba(168, 85, 247, 0.4); color: #06030f; }
+
+.display { font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+.zh { font-family: "Noto Serif SC", serif; }
+.zhsans { font-family: "Noto Sans SC", sans-serif; }
+.label-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  letter-spacing: 0.24em; text-transform: uppercase; font-size: 0.64rem; color: var(--holo);
+}
+
+/* the immersion gradient — spatial blue → VR violet → holo cyan */
+.spark-text {
+  background: linear-gradient(100deg, #93c5ff 0%, #4d9bff 24%, #a855f7 58%, #22d3ee 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.flux-text { color: #93c5ff; }
+.iris-text { color: #c98bff; }
+.holo-text { color: #67e8f9; }
+.plasm-text { color: #ff8fc4; }
+.gold-text {
+  color: #ffe9b3;
+  text-shadow: 0 0 26px rgba(255, 217, 122, 0.5), 0 0 76px rgba(255, 217, 122, 0.2);
+}
+.flux-glow {
+  color: #93c5ff;
+  text-shadow: 0 0 26px rgba(77, 155, 255, 0.55), 0 0 80px rgba(77, 155, 255, 0.22);
+}
+
+/* frosted holographic glass panel */
+.panel {
+  background: linear-gradient(160deg, rgba(36, 24, 96, 0.5), rgba(11, 6, 32, 0.92));
+  border: 1px solid rgba(77, 155, 255, 0.11);
+  backdrop-filter: blur(9px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.panel:hover { border-color: rgba(168, 85, 247, 0.45); box-shadow: 0 0 44px -18px rgba(168,85,247,0.7); }
+
+.panel-iris { border-color: rgba(168,85,247,0.2); }
+.panel-iris:hover { border-color: rgba(168,85,247,0.55); box-shadow: 0 0 44px -18px rgba(168,85,247,0.6); }
+.panel-holo { border-color: rgba(34,211,238,0.2); }
+.panel-holo:hover { border-color: rgba(34,211,238,0.55); box-shadow: 0 0 44px -18px rgba(34,211,238,0.6); }
+.panel-plasm { border-color: rgba(255,77,157,0.2); }
+.panel-plasm:hover { border-color: rgba(255,77,157,0.55); box-shadow: 0 0 44px -18px rgba(255,77,157,0.6); }
+.panel-gold { border-color: rgba(255,217,122,0.18); }
+.panel-gold:hover { border-color: rgba(255,217,122,0.5); box-shadow: 0 0 44px -18px rgba(255,217,122,0.6); }
+
+.rule-flux {
+  background: linear-gradient(90deg, transparent, rgba(77,155,255,0.6) 14%, rgba(168,85,247,0.55) 44%, rgba(34,211,238,0.55) 70%, rgba(255,77,157,0.4) 90%, transparent);
+}
+
+/* drifting holographic mote */
+@keyframes drift {
+  0% { transform: translateY(0) scale(0.9); opacity: 0; }
+  18% { opacity: 0.85; }
+  100% { transform: translateY(-260px) scale(1.25); opacity: 0; }
+}
+.drift { animation: drift linear infinite; }
+
+/* flowing dashed spatial edge */
+@keyframes flow { to { stroke-dashoffset: -48; } }
+.flow { stroke-dasharray: 5 8; animation: flow 1.7s linear infinite; }
+
+/* pulse — presence / hologram shimmer */
+@keyframes qpulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+.pulse { animation: qpulse 2.4s ease-in-out infinite; }
+
+/* slow spatial spin */
+@keyframes spin360 { to { transform: rotate(360deg); } }
+.spin-slow { animation: spin360 30s linear infinite; transform-origin: center; }
+.spin-rev { animation: spin360 44s linear infinite reverse; transform-origin: center; }
+
+@keyframes riseIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+.rise-in { animation: riseIn 0.9s cubic-bezier(0.2,0.7,0.2,1) both; }
+.lang-fade { animation: riseIn 0.45s ease both; }
+
+/* breathing glow for the immersion core */
+@keyframes breathe { 0%,100% { opacity: 0.55; transform: scale(1); } 50% { opacity: 1; transform: scale(1.06); } }
+.breathe { animation: breathe 4.5s ease-in-out infinite; }
+
+/* twinkle for spatial nodes */
+@keyframes twinkle { 0%,100% { opacity: 0.25; } 50% { opacity: 1; } }
+.twinkle { animation: twinkle 3.2s ease-in-out infinite; }
+
+::-webkit-scrollbar { width: 10px; background: #06030f; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #1a1048, #2f2078); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #2f2078, #7c3aed); }
